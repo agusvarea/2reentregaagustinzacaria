@@ -27,6 +27,21 @@ const getproducts = async ()=>{
         content.append(comprar);
     
         comprar.addEventListener("click", () =>{
+            Toastify({
+                text: "se agrego al carrito",
+                duration: 3000,
+                close: true,
+                gravity: "bottom", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                  borderRadius:"2rem",
+                  textTransform:"uppercase",
+                  fontSize:".75rem"
+                },
+                onClick: function(){} // Callback after click
+              }).showToast();
             const repeat = carrito.some((repeatproduct) => repeatproduct.id === product.id);
             if (repeat){
                 carrito.map((prod) => {
@@ -120,6 +135,21 @@ const pintarcarrito = () =>{
 vercarrito.addEventListener("click", pintarcarrito);
 /* funcion para eliminar cosas del carrito*/
 const eliminarproducto = () => {
+    Toastify({
+        text: "producto eliminado",
+        duration: 3000,
+        close: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+          borderRadius:"2rem",
+          textTransform:"uppercase",
+          fontSize:".75rem"
+        },
+        onClick: function(){} // Callback after click
+      }).showToast();
     const foundid = carrito.find((Element) => Element.id);
     carrito = carrito.filter((carritoid) => {
         return carritoid !== foundid;
